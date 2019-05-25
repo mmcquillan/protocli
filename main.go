@@ -35,7 +35,11 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		input := strings.TrimSpace(scanner.Text())
-		if input != "" {
+		if input == "?" {
+			for _, cmd := range config.Commands {
+				fmt.Println(cmd.Command)
+			}
+		} else if input != "" {
 			for _, cmd := range config.Commands {
 				match, _, values := matcher.Matcher(cmd.Command, input)
 				if match {
