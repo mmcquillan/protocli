@@ -1,0 +1,19 @@
+---
+commands:
+-
+  command: "version"
+  response: "0.1"
+-
+  command: "do plan <file>"
+  response: "Planning ${file}...
+  \n.
+	\n.
+	\n.
+	\nComplete"
+-
+  command: "do apply <file>"
+  response: " ${file}...
+  \n.
+	\n.
+	\n.
+	\nComplete"
