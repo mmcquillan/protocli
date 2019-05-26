@@ -30,8 +30,13 @@ func main() {
 		os.Exit(1)
 	}
 
+	// set defaults
+	if config.Prompt == "" {
+		config.Prompt = "> "
+	}
+
 	// loop on input
-	fmt.Print("\n> ")
+	fmt.Print("\n" + config.Prompt)
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		input := strings.TrimSpace(scanner.Text())
@@ -48,11 +53,12 @@ func main() {
 			}
 
 		}
-		fmt.Print("\n> ")
+		fmt.Print("\n" + config.Prompt)
 	}
 }
 
 type Config struct {
+	Prompt   string `yaml:"prompt"`
 	Commands []struct {
 		Command  string `yaml:"command"`
 		Response string `yaml:"response"`
