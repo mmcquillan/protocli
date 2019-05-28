@@ -31,7 +31,14 @@ func main() {
 			for _, cmd := range config.Commands {
 				match, _, values := matcher.Matcher(cmd.Command, input)
 				if match {
-					fmt.Println(Substitute(cmd.Response, values))
+					if cmd.Response != "" {
+						fmt.Println(Substitute(cmd.Response, values))
+					}
+					if len(cmd.Responses) > 0 {
+						for _, r := range cmd.Responses {
+							fmt.Println(Substitute(r.Response, values))
+						}
+					}
 				}
 			}
 

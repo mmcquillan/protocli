@@ -11,8 +11,11 @@ import (
 type Config struct {
 	Prompt   string `yaml:"prompt"`
 	Commands []struct {
-		Command  string `yaml:"command"`
-		Response string `yaml:"response"`
+		Command   string `yaml:"command"`
+		Response  string `yaml:"response"`
+		Responses []struct {
+			Response string `yaml:"response"`
+		} `yaml:"responses"`
 	} `yaml:"commands"`
 }
 
