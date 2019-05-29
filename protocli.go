@@ -9,10 +9,15 @@ import (
 	"github.com/mmcquillan/matcher"
 )
 
+var version string
+
 func main() {
 
 	// strarting
-	fmt.Println("protocli")
+	fmt.Println("protocli " + version)
+	if len(os.Args) == 2 && os.Args[1] == "version" {
+		os.Exit(0)
+	}
 
 	// load config
 	var config Config

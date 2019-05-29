@@ -2,6 +2,13 @@
 
 This is a CLI prototyping tool using the [Matcher Format](https://github.com/mmcquillan/matcher) with response variable substitution.
 
+## Install
+
+On the mac, you can install via brew as.
+
+`brew install mmcquillan/tools/protocli`
+
+
 
 ## Config
 
@@ -40,3 +47,12 @@ commands:
 - Default: none
 - Type: string
 
+
+## Releases
+
+v0.2.0
+- Added custom prompts
+
+
+v0.1.0
+- Initial Release
