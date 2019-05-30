@@ -22,10 +22,7 @@ func main() {
 
 	// handler
 	handlers.Exit()
-
-	// load config
-	var config Config
-	GetConfig(&config)
+	config := handlers.LoadConfig()
 
 	// loop on input
 	fmt.Print("\n" + config.Prompt)
@@ -41,11 +38,11 @@ func main() {
 				match, _, values := matcher.Matcher(cmd.Command, input)
 				if match {
 					if cmd.Response != "" {
-						fmt.Println(Substitute(cmd.Response, values))
+						fmt.Println(handlers.Substitute(cmd.Response, values))
 					}
 					if len(cmd.Responses) > 0 {
 						for _, r := range cmd.Responses {
-							fmt.Println(Substitute(r.Response, values))
+							fmt.Println(handlers.Substitute(r.Response, values))
 						}
 					}
 				}
