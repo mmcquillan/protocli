@@ -29,7 +29,8 @@ commands:
 -
   command: "do plan <file>"
   response: "Planning ${file}...
-	\nComplete"
+  \nComplete"
+  delay: 2
 ```
 
 ### prompt
@@ -57,6 +58,11 @@ commands:
 - Default: white
 - Type: string
 
+### delay
+- Description: Number of seconds to delay before showing response
+- Default: 0
+- Type: int
+
 
 ## Releases
 
@@ -67,6 +73,7 @@ v0.2.0
 - Added output color
 - Added dynamic config reload
 - Updated matcher library for short flags
+- Added delay option to response
 
 v0.1.0
 - Initial Release

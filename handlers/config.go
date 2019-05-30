@@ -15,9 +15,11 @@ type Config struct {
 		Command   string `yaml:"command"`
 		Response  string `yaml:"response"`
 		Color     string `yaml:"color"`
+		Delay     int    `yaml:"delay"`
 		Responses []struct {
 			Response string `yaml:"response"`
 			Color    string `yaml:"color"`
+			Delay    int    `yaml:"delay"`
 		} `yaml:"responses"`
 	} `yaml:"commands"`
 }

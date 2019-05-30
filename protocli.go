@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/fatih/color"
 	"github.com/mmcquillan/matcher"
@@ -46,6 +47,9 @@ func main() {
 				match, _, values := matcher.Matcher(cmd.Command, input)
 				if match {
 
+					// delay
+					time.Sleep(time.Second * time.Duration(cmd.Delay))
+
 					// sub response
 					response := handlers.Substitute(cmd.Response, values)
 
@@ -74,6 +78,9 @@ func main() {
 					// list response
 					if len(cmd.Responses) > 0 {
 						for _, r := range cmd.Responses {
+
+							// delay
+							time.Sleep(time.Second * time.Duration(r.Delay))
 
 							// sub response
 							response := handlers.Substitute(r.Response, values)
