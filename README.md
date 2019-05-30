@@ -66,6 +66,7 @@ v0.2.0
 - Added config command line paramater
 - Added output color
 - Added dynamic config reload
+- Updated matcher library for short flags
 
 v0.1.0
 - Initial Release
