@@ -23,7 +23,8 @@ func main() {
 
 	// handler
 	handlers.Exit()
-	config := handlers.LoadConfig()
+	var config handlers.Config
+	handlers.LoadConfig(&config)
 
 	// initialize cli
 	fmt.Print("\n" + config.Prompt)

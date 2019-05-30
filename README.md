@@ -65,6 +65,7 @@ v0.2.0
 - Added proper exit handling
 - Added config command line paramater
 - Added output color
+- Added dynamic config reload
 
 v0.1.0
 - Initial Release
