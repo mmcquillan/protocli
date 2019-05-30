@@ -1,0 +1,83 @@
+---
+prompt: "consul-server$ "
+commands:
+-
+  command: "consul"
+  response: "Usage: consul [--version] [--help] <command> [<args>]
+\n
+\nAvailable commands are:
+\n    acl            Interact with Consul's ACLs
+\n    agent          Runs a Consul agent
+\n    catalog        Interact with the catalog
+\n    config         Interact with Consul's Centralized Configurations
+\n    connect        Interact with Consul Connect
+\n    debug          Records a debugging archive for operators
+\n    event          Fire a new event
+\n    exec           Executes a command on Consul nodes
+\n    force-leave    Forces a member of the cluster to enter the \"left\" state
+\n    info           Provides debugging information for operators.
+\n    intention      Interact with Connect service intentions
+\n    join           Tell Consul agent to join cluster
+\n    keygen         Generates a new encryption key
+\n    keyring        Manages gossip layer encryption keys
+\n    kv             Interact with the key-value store
+\n    leave          Gracefully leaves the Consul cluster and shuts down
+\n    lock           Execute a command holding a lock
+\n    login          Login to Consul using an auth method
+\n    logout         Destroy a Consul token created with login
+\n    maint          Controls node or service maintenance mode
+\n    members        Lists the members of a Consul cluster
+\n    monitor        Stream logs from a Consul agent
+\n    operator       Provides cluster-level tools for Consul operators
+\n    reload         Triggers the agent to reload configuration files
+\n    rtt            Estimates network round trip time between nodes
+\n    services       Interact with services
+\n    snapshot       Saves, restores and inspects snapshots of Consul server state
+\n    tls            Builtin helpers for creating CAs and certificates
+\n    validate       Validate config files/directories
+\n    version        Prints the Consul version
+\n    watch          Watch for changes in Consul
+\n"
+-
+  command: "consul <--version>"
+  response: "Consul v1.5.1
+\nProtocol 2 spoken by default, understands 2 to 3 (agent will automatically use protocol >2 when speaking to compatible agents) "
+-
+  command: "consul acl"
+  response: "Usage: consul acl <subcommand> [options] [args]
+\n
+\n  This command has subcommands for interacting with Consul's ACLs.
+\n  Here are some simple examples, and more detailed examples are available
+\n  in the subcommands or the documentation.
+\n
+\n  Bootstrap ACLs:
+\n
+\n      $ consul acl bootstrap
+\n
+\n  List all ACL tokens:
+\n
+\n      $ consul acl token list
+\n
+\n  Create a new ACL policy:
+\n
+\n      $ consul acl policy create -name \"new-policy\" \\
+\n                                 -description \"This is an example policy\" \\
+\n                                 -datacenter \"dc1\" \\
+\n                                 -datacenter \"dc2\" \\
+\n                                 -rules @rules.hcl
+\n
+\n  Set the default agent token:
+\n
+\n      $ consul acl set-agent-token default 0bc6bc46-f25e-4262-b2d9-ffbe1d96be6f
+\n
+\n  For more examples, ask for subcommand help or view the documentation.
+\n
+\nSubcommands:
+\n    auth-method        Manage Consul's ACL auth methods
+\n    binding-rule       Manage Consul's ACL binding rules
+\n    bootstrap          Bootstrap Consul's ACL system
+\n    policy             Manage Consul's ACL policies
+\n    role               Manage Consul's ACL roles
+\n    set-agent-token    Assign tokens for the Consul Agent's usage
+\n    token              Manage Consul's ACL tokens
+\n    translate-rules    Translate the legacy rule syntax into the current syntax"
