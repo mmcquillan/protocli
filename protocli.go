@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/fatih/color"
 	"github.com/mmcquillan/matcher"
 	"github.com/mmcquillan/protocli/handlers"
 )
@@ -24,25 +25,78 @@ func main() {
 	handlers.Exit()
 	config := handlers.LoadConfig()
 
-	// loop on input
+	// initialize cli
 	fmt.Print("\n" + config.Prompt)
 	scanner := bufio.NewScanner(os.Stdin)
+
+	// input loop
 	for scanner.Scan() {
 		input := strings.TrimSpace(scanner.Text())
+
+		// help
 		if input == "?" {
 			for _, cmd := range config.Commands {
 				fmt.Println(cmd.Command)
 			}
+
+			// find match
 		} else if input != "" {
 			for _, cmd := range config.Commands {
 				match, _, values := matcher.Matcher(cmd.Command, input)
 				if match {
+
+					// sub response
+					response := handlers.Substitute(cmd.Response, values)
+
+					// single response
 					if cmd.Response != "" {
-						fmt.Println(handlers.Substitute(cmd.Response, values))
+						switch strings.ToLower(cmd.Color) {
+						case "red":
+							color.Red(response)
+						case "green":
+							color.Green(response)
+						case "yellow":
+							color.Yellow(response)
+						case "blue":
+							color.Blue(response)
+						case "magenta":
+							color.Magenta(response)
+						case "cyan":
+							color.Cyan(response)
+						case "white":
+							color.White(response)
+						default:
+							fmt.Println(response)
+						}
 					}
+
+					// list response
 					if len(cmd.Responses) > 0 {
 						for _, r := range cmd.Responses {
-							fmt.Println(handlers.Substitute(r.Response, values))
+
+							// sub response
+							response := handlers.Substitute(r.Response, values)
+
+							// single response
+							switch strings.ToLower(r.Color) {
+							case "red":
+								color.Red(response)
+							case "green":
+								color.Green(response)
+							case "yellow":
+								color.Yellow(response)
+							case "blue":
+								color.Blue(response)
+							case "magenta":
+								color.Magenta(response)
+							case "cyan":
+								color.Cyan(response)
+							case "white":
+								color.White(response)
+							default:
+								fmt.Println(response)
+							}
+
 						}
 					}
 				}

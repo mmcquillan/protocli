@@ -25,6 +25,7 @@ commands:
 -
   command: "version"
   response: "0.1"
+  color: "white"
 -
   command: "do plan <file>"
   response: "Planning ${file}...
@@ -51,6 +52,11 @@ commands:
 - Default: none
 - Type: string
 
+### color
+- Description: Color to print the response in (red | green | yellow | blue | magenta | cyan | white)
+- Default: white
+- Type: string
+
 
 ## Releases
 
@@ -58,6 +64,7 @@ v0.2.0
 - Added custom prompts
 - Added proper exit handling
 - Added config command line paramater
+- Added output color
 
 v0.1.0
 - Initial Release

@@ -18,3 +18,7 @@ commands:
 	\n.
 	\n.
 	\nComplete"
+-
+  command: "error"
+  response: "Error!"
+  color: "Red"

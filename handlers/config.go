@@ -13,8 +13,10 @@ type Config struct {
 	Commands []struct {
 		Command   string `yaml:"command"`
 		Response  string `yaml:"response"`
+		Color     string `yaml:"color"`
 		Responses []struct {
 			Response string `yaml:"response"`
+			Color    string `yaml:"color"`
 		} `yaml:"responses"`
 	} `yaml:"commands"`
 }
