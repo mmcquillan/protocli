@@ -102,12 +102,12 @@ commands:
 v0.2.0
 - Added custom prompts
 - Added proper exit handling
-- Added config command line paramater
+- Added config command line parameter
 - Added output color
 - Added dynamic config reload
 - Updated matcher library for short flags
-- Added delay option to response
-- Added default resonse for no match
+- Added delay option to the response
+- Added default response for no match
 
 v0.1.0
 - Initial Release
