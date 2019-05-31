@@ -11,6 +11,7 @@ import (
 
 type Config struct {
 	Prompt   string `yaml:"prompt"`
+	Default  string `yaml:"default"`
 	Commands []struct {
 		Command   string `yaml:"command"`
 		Response  string `yaml:"response"`

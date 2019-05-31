@@ -14,28 +14,58 @@ Launch by passing in a config file:
 `protocli <config>`
 
 
+## Commands
+
+The only native command inside protocli is `?` which lists all possible command matches.
+
+
 ## Config
 
-The configuration is a YAML based file, like the one here:
+The configuration is a YAML based file. Examples can be found in the [here](examples).
 
 ```
 ---
 prompt: "> "
 commands:
 -
-  command: "version"
-  response: "0.1"
-  color: "white"
+  command: "do version"
+  response: "0.2.0"
 -
   command: "do plan <file>"
-  response: "Planning ${file}...
-  \nComplete"
-  delay: 2
+  responses:
+  -
+    response: "Planning ${file}..."
+  -
+    response: "Complete"
+    delay: 2
+-
+  command: "do apply <file>"
+  responses:
+  -
+    response: "Applying ${file}..."
+  -
+    response: "Error: applying ${file}"
+    color: "red"
+    delay: 3
+-
+  command: "do plan [...]"
+  response: "do plan <file>"
+-
+  command: "do apply [...]"
+  response: "do apply <file>"
+-
+  command: "do [...]"
+  response: "do <plan|apply> <file>"
 ```
 
 ### prompt
 - Description: A prompt to show in the protocli interaction
 - Default: `> `
+- Type: string
+
+### default
+- Description: A default response when no command is matched
+- Default: none
 - Type: string
 
 ### commands
@@ -49,7 +79,7 @@ commands:
 - Type: string
 
 ### response
-- Description: A response to show when the command is written
+- Description: A response to show when the command is written (you can also list responses)
 - Default: none
 - Type: string
 
@@ -74,6 +104,7 @@ v0.2.0
 - Added dynamic config reload
 - Updated matcher library for short flags
 - Added delay option to response
+- Added default resonse for no match
 
 v0.1.0
 - Initial Release

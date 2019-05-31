@@ -10,8 +10,6 @@ github.com/mattn/go-isatty v0.0.8 h1:HLtExJ+uU2HOZ+wI0Tt5DtUDrx8yhUqDcp7fYERX4CE
 github.com/mattn/go-isatty v0.0.8/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
 github.com/mmcquillan/matcher v0.0.0-20190222143403-360e5831bb9f h1:j6qdde/IT++Tc2sjBa6ZG8v3CZY593HlTTfwnLpWxcA=
 github.com/mmcquillan/matcher v0.0.0-20190222143403-360e5831bb9f/go.mod h1:qfvY9QCLnh6FITGZGY0kmBBKTw2kIs7R0TYD/xpbmZE=
-github.com/mmcquillan/watcher v0.0.0-20151020185441-794ed96107e5 h1:JZTWUNpdOgEoBPTA+c27m4qiZdDRA1ljgKQAJv1LZqc=
-github.com/mmcquillan/watcher v0.0.0-20151020185441-794ed96107e5/go.mod h1:4QB4nLJtt5wxuo5XLA6589CB0K8NIrqVxbumzfMEf3U=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

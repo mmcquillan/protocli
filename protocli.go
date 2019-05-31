@@ -43,50 +43,24 @@ func main() {
 
 			// find match
 		} else if input != "" {
+			cmdMatch := false
 			for _, cmd := range config.Commands {
-				match, _, values := matcher.Matcher(cmd.Command, input)
-				if match {
+				if !cmdMatch {
 
-					// delay
-					time.Sleep(time.Second * time.Duration(cmd.Delay))
+					match, _, values := matcher.Matcher(cmd.Command, input)
+					if match {
 
-					// sub response
-					response := handlers.Substitute(cmd.Response, values)
+						cmdMatch = true
 
-					// single response
-					if cmd.Response != "" {
-						switch strings.ToLower(cmd.Color) {
-						case "red":
-							color.Red(response)
-						case "green":
-							color.Green(response)
-						case "yellow":
-							color.Yellow(response)
-						case "blue":
-							color.Blue(response)
-						case "magenta":
-							color.Magenta(response)
-						case "cyan":
-							color.Cyan(response)
-						case "white":
-							color.White(response)
-						default:
-							fmt.Println(response)
-						}
-					}
+						// delay
+						time.Sleep(time.Second * time.Duration(cmd.Delay))
 
-					// list response
-					if len(cmd.Responses) > 0 {
-						for _, r := range cmd.Responses {
+						// sub response
+						response := handlers.Substitute(cmd.Response, values)
 
-							// delay
-							time.Sleep(time.Second * time.Duration(r.Delay))
-
-							// sub response
-							response := handlers.Substitute(r.Response, values)
-
-							// single response
-							switch strings.ToLower(r.Color) {
+						// single response
+						if cmd.Response != "" {
+							switch strings.ToLower(cmd.Color) {
 							case "red":
 								color.Red(response)
 							case "green":
@@ -104,12 +78,49 @@ func main() {
 							default:
 								fmt.Println(response)
 							}
+						}
 
+						// list response
+						if len(cmd.Responses) > 0 {
+							for _, r := range cmd.Responses {
+
+								// delay
+								time.Sleep(time.Second * time.Duration(r.Delay))
+
+								// sub response
+								response := handlers.Substitute(r.Response, values)
+
+								// single response
+								switch strings.ToLower(r.Color) {
+								case "red":
+									color.Red(response)
+								case "green":
+									color.Green(response)
+								case "yellow":
+									color.Yellow(response)
+								case "blue":
+									color.Blue(response)
+								case "magenta":
+									color.Magenta(response)
+								case "cyan":
+									color.Cyan(response)
+								case "white":
+									color.White(response)
+								default:
+									fmt.Println(response)
+								}
+
+							}
 						}
 					}
 				}
-			}
 
+				// print default if no matches
+				if !cmdMatch && config.Default != "" {
+					fmt.Println(config.Default)
+				}
+
+			}
 		}
 		fmt.Print("\n" + config.Prompt)
 	}
