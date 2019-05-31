@@ -21,7 +21,7 @@ The only native command inside protocli is `?` which lists all possible command 
 
 ## Config
 
-The configuration is a YAML based file. Examples can be found in the [here](examples).
+The configuration is a YAML based file. Examples can be found [here](examples).
 
 ```
 ---
@@ -55,7 +55,10 @@ commands:
   response: "do apply <file>"
 -
   command: "do [...]"
-  response: "do <plan|apply> <file>"
+  response: "the do app\n
+  do version\n
+  do plan <file>\n
+  do apply <file>"
 ```
 
 ### prompt

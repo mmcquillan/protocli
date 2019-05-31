@@ -29,4 +29,7 @@ commands:
   response: "do apply <file>"
 -
   command: "do [...]"
-  response: "do <plan|apply> <file>"
+  response: "the do app\n
+  do version\n
+  do plan <file>\n
+  do apply <file>"
