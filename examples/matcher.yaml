@@ -1,0 +1,77 @@
+---
+prompt: "> "
+commands:
+-
+  command: "run"
+  response: "MATCH: run"
+-
+  command: "run <speed(string:fast,slow)>"
+  response: "\n
+    MATCH: run <speed(string:fast,slow)>\n
+    SPEED: ${speed}"
+-
+  command: "run <speed(int:0,2,4,6)>"
+  response: "\n
+    MATCH: run <speed(int:0,2,4,6)>\n
+    SPEED: ${speed}"
+-
+  command: "run <speed(int)>"
+  response: "\n
+    MATCH: run <speed(int)>\n
+    SPEED: ${speed}"
+-
+  command: "run <speed(string)>"
+  response: "\n
+    MATCH: run <speed(string)>\n
+    SPEED: ${speed}"
+-
+  command: "run <speed> [distance] <-j>"
+  response: "\n
+    MATCH: run <speed> [distance] <-j>\n
+    SPEED: ${speed}\n
+    DISTANCE:  ${distance}\n
+    J: ${-j}"
+-
+  command: "run <speed> [distance] <--jump>"
+  response: "\n
+    MATCH: run <speed> [distance] <--jump>\n
+    SPEED: ${speed}\n
+    DISTANCE: ${distance}\n
+    JUMP: ${jump}"
+-
+  command: "run <speed> [distance] <--jump>"
+  response: "\n
+    MATCH: run <speed> [distance] <--jump>\n
+    SPEED: ${speed}\n
+    DISTANCE: ${distance}\n
+    JUMP: ${jump}"
+-
+  command: "run <speed> [distance] [--jump]"
+  response: "\n
+    MATCH: run <speed> [distance] [--jump]\n
+    SPEED: ${speed}\n
+    DISTANCE: ${distance}\n
+    JUMP: ${jump}"
+-
+  command: "run <speed> [distance] [--]"
+  response: "\n
+    MATCH: run <speed> [distance] [--]\n
+    SPEED: ${speed}\n
+    DISTANCE: ${distance}\n
+    FOO: ${foo}"
+-
+  command: "run <speed> [distance]"
+  response: "\n
+    MATCH: run <speed> [distance]\n
+    SPEED: ${speed}\n
+    DISTANCE: ${distance}"
+-
+  command: "run [song...]"
+  response: "\n
+    MATCH: run [song...]\n
+    SONG: ${song}"
+-
+  command: "run <--jump(bool)>"
+  response: "\n
+    MATCH: run <--jump(bool)>\n
+    JUMP:  ${jump}"

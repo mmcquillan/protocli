@@ -1,0 +1,35 @@
+---
+prompt: "> "
+commands:
+-
+  command: "do version"
+  response: "0.3.0"
+-
+  command: "do plan <file>"
+  responses:
+  -
+    response: "Planning ${file}..."
+  -
+    response: "Complete"
+    delay: 2
+-
+  command: "do apply <file>"
+  responses:
+  -
+    response: "Applying ${file}..."
+  -
+    response: "Error: applying ${file}"
+    color: "red"
+    delay: 3
+-
+  command: "do plan [...]"
+  response: "do plan <file>"
+-
+  command: "do apply [...]"
+  response: "do apply <file>"
+-
+  command: "do [...]"
+  response: "the do app\n
+  do version\n
+  do plan <file>\n
+  do apply <file>"
